@@ -1,0 +1,2 @@
+[06-Jun-2017 02:39:00 America/New_York] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/nokolasol/public_html/app/Admin.php on line 7
+[06-Jun-2017 02:39:23 America/New_York] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/nokolasol/public_html/app/Admin.php on line 7

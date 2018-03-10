@@ -1,0 +1,49 @@
+
+.navbar, .dropdown-menu{
+background-color:#dd0908;
+border: none;
+
+}
+.custom_height{
+max-height: 10px;
+}
+
+.nav>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .dropdown-menu>li>a, .dropdown-menu>li{
+  border-bottom: 0px solid transparent;
+  padding-right:0.3em;
+  font-size: 15px;
+}
+.nav>li>a:focus, .nav>li>a:hover,.nav .open>a, .nav .open>a:focus, .nav .open>a:hover, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+  
+  background: none;
+font-size: 16px;
+    color: #1ab722;
+
+/* padding:5px 5px;
+*/}
+.navbar a, .dropdown-menu>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .navbar-toggle{
+ color: #fff;
+ font-size: 13px;
+ 
+}
+/*.dropdown-menu{
+      -webkit-box-shadow: none;
+    box-shadow:none;
+}*/
+
+.nav{
+ height: 40px;
+}
+
+.nav li{
+
+}
+
+.nav li a:hover{
+
+	/*font-size: 10px;*/
+}
+.navbar-toggle .icon-bar{
+    color: #fff;
+    background: #fff;
+}

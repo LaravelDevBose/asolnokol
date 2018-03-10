@@ -1,0 +1,1 @@
+<div class="fb-comments" data-href="http://asolnokol.com/" data-numposts="5"></div>
