@@ -34,7 +34,6 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontEnd/css/component.css')}}" />
 <link rel="stylesheet" href="{{ asset('public/frontEnd/css/font-awesome.min.css')}}" /><!-- fontawesome-CSS -->
 <link rel="stylesheet" href="{{ asset('public/frontEnd/css/menu_sideslide.css')}}" type="text/css" media="all"><!-- Navigation-CSS -->
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontEnd/css/adds.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontEnd/css/style.css')}}" />
 
 <script type="text/javascript" src="{{ asset('public/frontEnd/js/modernizr-2.6.2.min.js')}}"></script>

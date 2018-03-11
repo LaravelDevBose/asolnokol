@@ -12,6 +12,10 @@ HOME | Aslol Vs Nokol
 			<div class="cat_adds_left">
 		 		<img src="{{ asset('public/frontEnd/images/magazine-ad.jpg')}} ">
 		 	</div>
+
+		 	<div class="cat_adds_left-mobile">
+		 		<img src="{{ asset('public/frontEnd/images/magazine-ad3.jpg')}} ">
+		 	</div>
 		</div>
 		
 	 	<div class="col-sm-12 col-md-8">
@@ -75,10 +79,14 @@ HOME | Aslol Vs Nokol
 			<div class="cat_adds_right">
 		 		<img src="{{ asset('public/frontEnd/images/magazine-ad3.jpg')}} ">
 		 	</div>
+
+		 	<div class="cat_adds_right-mobile">
+		 		<img src="{{ asset('public/frontEnd/images/magazine-ad.jpg')}} ">
+		 	</div>
 		</div>
 		
 	</div>
-	<
+	
 </div>
 <!-- /. product container -->
 <div class="clearfix"></div>

@@ -67,7 +67,7 @@ Products | Aslol Vs Nokol
                     </div>
                 @endif
                 </section>
-                @include('frontEnd.includes.sidebar')
+
 			</div>
 			<!--//search-car-left-nav -->
 			<!--/search-car-right-text -->

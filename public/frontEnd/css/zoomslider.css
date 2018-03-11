@@ -131,7 +131,7 @@
     display: block;
     position: absolute;
     right: 0;
-    top: 3px;
+    top: 0px;
     padding: 0;
     margin: 0;
     line-height: 85px;
@@ -154,7 +154,11 @@
 }
 /* Open state */
 .sb-search.sb-search-open,.no-js .sb-search {
-	width: 22%;
+	width: 100%;
+    background: red;
+    top: 100%;
+    right: 0%;
+    height: 50px;
 }
 .sb-search.sb-search-open .sb-icon-search,.no-js .sb-search .sb-icon-search {
 	background:url(../images/search.png) no-repeat 12px 12px;
@@ -239,7 +243,7 @@
 	background: url(../images/rupee.png) no-repeat 2% center #ffffff;
 }
 .search-two seclect,select#country{
-    padding:10px 46px;
+    padding:10px 10px;
     width: 100%;
     font-weight: normal;
     background: none;
@@ -248,12 +252,12 @@
     outline: none;
     font-size:14px;
     margin-bottom:0;
-	background: url(../images/car.png) no-repeat 5% center #ffffff;
+	background: center rgb(247, 243, 228);
 }
 .section_room select{
 	border-left:1px solid #999!important;
-	background: url(../images/rupee.png) no-repeat 7% center #ffffff!important;
-	    padding: 10px 35px!important;
+	background: center rgb(247, 243, 228);
+    padding: 10px 10px;
 }
 /*-- /responsive --*/
 @media (max-width:1440px){
@@ -290,14 +294,155 @@
 		margin: 2% auto 0;
 	}
 }
+@media (max-width:1080px){
+	.banner-info h1 {
+	    padding-top: 10%;
+	}
+	.section_room , .search-two{
+	    float: left;
+	    width: 38%;
+	}
+	.banner-info input[type="submit"]{
+		width: 20%;
+	}
+}
 @media (max-width:991px){
 	#demo-1 {
 		min-height: 375px;
 	}
+	.banner-info h1 {
+	    padding-top: 10%;
+	}
+	.section_room , .search-two{
+	    float: left;
+	    width: 38%;
+	}
+	.banner-info input[type="submit"]{
+		width: 20%;
+	}
 }
 
+@media (max-width:800px){
+	#demo-1 {
+		min-height: 454px;
+	}
+	.banner-info h1 {
+	    padding-top: 23%;
+	}
+	.section_room , .search-two{
+	    float: left;
+	    width: 40%;
+	}
+	.banner-info input[type="submit"]{
+		width: 20%;
+	}
+}
+@media (max-width:736px){
+	.banner-info h2 {
+		font-size: 1.6em;
+		margin: 0;
+		font-weight: 300;
+		margin-top: 0.3em;
+	}
+	#demo-1 {
+      min-height: 414px;
+	}
+	.banner-info h1 {
+	    padding-top: 23%;
+	}
+	.section_room , .search-two{
+	    float: left;
+	    width: 40%;
+	}
+	.banner-info input[type="submit"]{
+		width: 20%;
+	}
 
+}
+@media (max-width:568px){
+	#demo-1 {
+		min-height: 359px;
+	}
+	
+	.banner-inner-dott {
+		padding-bottom: 30px;
+	}
+
+	
+}
+@media (max-width:480px){
+	#demo-1 {
+		min-height: 359px;
+	}
+	.banner-inner-dott {
+		padding-bottom: 30px;
+	}
+	.search-two {
+	    float: left;
+	    width: 50%;
+	}
+	.section_room {
+	    float: left;
+	    width: 50%;
+	}
+	.banner-info input[type="submit"]{
+	    padding: 7px 0;
+	    font-size: 0.95em;
+	    width: 40%;
+	    margin-left: 0em;
+	    float: none;
+	}
+	.banner-info h1 {
+	    padding-top: 27%;
+	}
+}
+@media (max-width:414px){
+	#demo-1 {
+		min-height: 336px;
+	}
+	.zs-enabled .zs-slideshow .zs-bullets {
+		position: absolute;
+		bottom: 28px;
+		left: 0;
+	}
+	.banner-info h1 {
+	    padding-top: 32%;
+	}
+}
+@media (max-width:375px){
+	.section_room {
+		float: left;
+		width: 50%;
+		margin-bottom: 10px;
+	}
+	.banner-info input[type="submit"] {
+		padding: 7px 0;
+		font-size: 0.95em;
+		width: 32%;
+		margin-left: 0em;
+		float: none;
+	}
+	   .zs-enabled .zs-slideshow .zs-bullets {
+		position: absolute;
+		bottom: 18px;
+		left: 0;
+	}
+	.banner-info input[type="submit"] {
+	    padding: 10px 0;
+	    font-size: 0.95em;
+	    width: 60%;
+	    margin: 0px auto;
+	    margin-left: 0em;
+	    float: unset;
+	}
+}
+  
 @media (max-width:320px){
+	.zs-enabled .zs-slideshow .zs-bullets {
+		position: absolute;
+		bottom: 18px;
+		left: 0;
+	}
 	.banner-info h1 a {
        font-size: 0.7em;
 	}
@@ -320,7 +465,7 @@
 		margin: 2% auto 0;
 	}
 	.search-two seclect, select#country {
-		padding: 10px 34px;
+		padding: 10px 10px;
 		width: 100%;
 		font-weight: normal;
 		background: none;
@@ -329,12 +474,12 @@
 		outline: none;
 		font-size: 12px;
 		margin-bottom: 0;
-		background: url(../images/car.png) no-repeat 6% center #ffffff;
+		background: center rgb(247, 243, 228);
 	}
 	.section_room select {
 		border-left: 1px solid #999!important;
-		background: url(../images/rupee.png) no-repeat 4% center #ffffff!important;
-		padding: 10px 17px!important;
+		background: rgb(247, 243, 228) ;
+		padding: 10px 10px;
 	}
 	.banner-info input[type="submit"] {
 		outline: none;
@@ -377,77 +522,6 @@
 		width: 87%;
 		margin-top: 10px;
 		margin-left: 0px;
-	}
-}
-@media (max-width:800px){
-	#demo-1 {
-		min-height: 454px;
-	}
-}
-@media (max-width:736px){
-	.banner-info h2 {
-		font-size: 1.6em;
-		margin: 0;
-		font-weight: 300;
-		margin-top: 0.3em;
-	}
-	#demo-1 {
-      min-height: 414px;
-	}
-
-}
-@media (max-width:568px){
-	#demo-1 {
-		min-height: 359px;
-	}
-	
-	.banner-inner-dott {
-		padding-bottom: 30px;
-	}
-	
-}
-@media (max-width:480px){
-	#demo-1 {
-		min-height: 359px;
-	}
-	.banner-inner-dott {
-		padding-bottom: 30px;
-	}
-}
-@media (max-width:414px){
-	#demo-1 {
-		min-height: 336px;
-	}
-	.zs-enabled .zs-slideshow .zs-bullets {
-		position: absolute;
-		bottom: 28px;
-		left: 0;
-	}
-}
-@media (max-width:375px){
-	.section_room {
-		float: left;
-		width: 50%;
-		margin-bottom: 10px;
-	}
-	.banner-info input[type="submit"] {
-		padding: 7px 0;
-		font-size: 0.95em;
-		width: 32%;
-		margin-left: 0em;
-		float: none;
-	}
-	   .zs-enabled .zs-slideshow .zs-bullets {
-		position: absolute;
-		bottom: 18px;
-		left: 0;
-	}
-}
-@media (max-width:320px){
-   .zs-enabled .zs-slideshow .zs-bullets {
-		position: absolute;
-		bottom: 18px;
-		left: 0;
 	}
 }
 /*-- //responsive --*/

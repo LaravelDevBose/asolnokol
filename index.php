@@ -5,6 +5,7 @@
  *
  * @package  Laravel
  * @author   Taylor Otwell <taylor@laravel.com>
+ * @Developed By Arup Kumer Bose [Knight Coder] 
  */
 
 /*
@@ -46,6 +47,14 @@ $app = require_once __DIR__.'/bootstrap/app.php';
 | and wonderful application we have prepared for them.
 |
 */
+
+/**
+ * Laravel - A PHP Framework For Web Artisans
+ *
+ * @package  Laravel
+ * @author   Taylor Otwell <taylor@laravel.com>
+ * @Developed By Arup Kumer Bose [Knight Coder] 
+ */
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
