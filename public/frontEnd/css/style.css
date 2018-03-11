@@ -2314,12 +2314,12 @@ a.read.hvr-shutter-in-horizontal{
 }
 .latestProduct{
     padding: 10px 0;
-    width: 84%;
+    width: 100%;
     margin: 0 auto;
 }
 .latestProduct .divider{
-    margin:5px 0;
-    padding:0 10px;
+    margin: 0;
+    padding: 0 5px;
 }
 .fixed-hight{
     max-height: 400px
@@ -4686,8 +4686,9 @@ span.rupee-lac.slprice {
 /*-- focus --*/
 .categories {
     padding: 10px 0;
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
+    display: inline-block;
 }
 .focus-grid a {
 	text-decoration:none;
@@ -5471,10 +5472,10 @@ p.free {
     }
     .tips .youtube-video .tittle {
         text-align: center;
-        margin-bottom: .5em;
+        margin-bottom: 1em;
         color: #111;
-        font-size: 1.5em;
-        margin-top: 0em;
+        font-size: 1.8em;
+        margin-top: 2em;
     }
 	
 	.caption h3 a {

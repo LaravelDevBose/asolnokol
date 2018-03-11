@@ -18,29 +18,31 @@
 @include('frontEnd.includes.metaTags')
 
 <link rel="shortcut icon" href="{{ asset('public/favicon.ico')}}" type="image/x-icon" />
+<!--/web-fonts-->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,600italic,300,300italic,700,400italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Wallpoet' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Ubuntu:400,500,700,300' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
 
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--//web-fonts-->
+
 <!-- //for-mobile-apps -->
 <link href="{{ asset('public/frontEnd/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="{{ asset('public/frontEnd/css/bootstrap.min.css')}}"><!-- bootstrap-CSS -->
 <link rel="stylesheet" href="{{ asset('public/frontEnd/css/bootstrap-select.css')}}"><!-- bootstrap-select-CSS -->
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontEnd/css/zoomslider.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('public/frontEnd/css/style.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontEnd/css/component.css')}}" />
 <link rel="stylesheet" href="{{ asset('public/frontEnd/css/font-awesome.min.css')}}" /><!-- fontawesome-CSS -->
 <link rel="stylesheet" href="{{ asset('public/frontEnd/css/menu_sideslide.css')}}" type="text/css" media="all"><!-- Navigation-CSS -->
+<link rel="stylesheet" type="text/css" href="{{ asset('public/frontEnd/css/adds.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('public/frontEnd/css/style.css')}}" />
+
 <script type="text/javascript" src="{{ asset('public/frontEnd/js/modernizr-2.6.2.min.js')}}"></script>
 <!-- js -->
 <script type="text/javascript" src="{{asset('public/frontEnd/js/jquery.min.js')}}"></script>
 <!-- js -->
-<!--/web-fonts-->
-	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,600italic,300,300italic,700,400italic' rel='stylesheet' type='text/css'>
-	<link href='//fonts.googleapis.com/css?family=Wallpoet' rel='stylesheet' type='text/css'>
-	<link href='//fonts.googleapis.com/css?family=Ubuntu:400,500,700,300' rel='stylesheet' type='text/css'>
-	<link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
-
-<!--//web-fonts-->
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
 </head>
 <body>
 <!--FAcebook Comment Plugin SDK Code Start -->

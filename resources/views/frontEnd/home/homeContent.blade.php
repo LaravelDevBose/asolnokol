@@ -6,37 +6,81 @@ HOME | Aslol Vs Nokol
 
 @section('mainContent')
 <!-- product Content -->
-<div class="container">
-<h3 class="tittle">Latest Product Information</h3>
+<div class="car-loan-mid w3l">
 	<div class="row ">
-		@include('frontEnd.viewProducts.leatestProductContent')
+		<div class="col-sm-12 col-md-2">
+			<div class="cat_adds_left">
+		 		<img src="{{ asset('public/frontEnd/images/magazine-ad.jpg')}} ">
+		 	</div>
+		</div>
+		
+	 	<div class="col-sm-12 col-md-8">
+			
+			<div class="row">
+				<h3 class="tittle">Latest Product Information</h3>
+				<div class="latestProduct">
+					@foreach($letestProducts as $letestProduct )
+						<div class="col-md-3 col-sm-3 col-xs-6 divider">
+							<div class="focus-border fixed-hight">
+
+								<?php  
+									$productImage=DB::table('products_images')->where('productId', $letestProduct->id)->value('imagePath'); 
+									if(!file_exists($productImage)){
+										$productImage=DB::table('fack_products_images')->where('productId', $letestProduct->id)->value('fackProductImagePath');
+										if(!file_exists($productImage)){
+											$productImage = 'public/frontEnd/images/placeholder.jpg';	
+										}
+									}
+
+								?>
+								<div class="imageStyle" ><a href="{{ url('/singel.product/'.$letestProduct->id ) }}"><img src="{{ asset( $productImage )}}" alt="{!! $letestProduct->productName !!}"></a></div>
+								<div class="clearfix"></div>
+								<div class="heading"><a href="{{ url('/singel.product/'.$letestProduct->id ) }}">{!! $letestProduct->productName !!}</a></div>
+								<div class="clearfix"></div>
+
+							</div>
+						</div>
+					@endforeach
+						
+				</div>
+			</div>
+			
+				
+			<div class="clearfix"></div>
+
+			<div class="row">
+				<h3 class="tittle">All Category </h3>
+
+				<div class="categories">
+			    		@foreach($categories as $category)
+			    	
+					<div class="col-md-3 focus-grid">
+						<a href="{{ url('/view.category.product/'.$category->id )}}" >
+							<div class="focus-border">
+								<div class="focus-layout">
+									<div class="focus-image"><i class="{{ $category->icon }}"></i></div>
+									<h4 class="clrchg">{{ $category->categoryName }}</h4>
+								</div>
+							</div>
+						</a>
+					</div>
+					@endforeach	
+					<div class="clearfix"></div> 
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+
+		<div class="col-sm-12 col-md-2">
+			<div class="cat_adds_right">
+		 		<img src="{{ asset('public/frontEnd/images/magazine-ad3.jpg')}} ">
+		 	</div>
+		</div>
+		
 	</div>
+	<
 </div>
 <!-- /. product container -->
-<div class="clearfix"></div>
-
-<!-- content-starts-here -->
-<div class="car-loan-mid w3l">
- <h3 class="tittle">All Category </h3>
-    <div class="categories">
-    @foreach($categories as $category)
-    	
-		<div class="col-md-3 focus-grid">
-			<a href="{{ url('/view.category.product/'.$category->id )}}" >
-				<div class="focus-border">
-					<div class="focus-layout">
-						<div class="focus-image"><i class="{{ $category->icon }}"></i></div>
-						<h4 class="clrchg">{{ $category->categoryName }}</h4>
-					</div>
-				</div>
-			</a>
-		</div>
-	@endforeach	
-		<div class="clearfix"></div> 
-				
-	</div>
-</div>
-<!-- content-Stops-here -->
 <div class="clearfix"></div>
 
 <!-- Blog content -->
@@ -116,15 +160,18 @@ HOME | Aslol Vs Nokol
 		 @endif
 		 <?php  $i++; ?>
 
-	@endforeach
-	<div class="clearfix"></div>
+		@endforeach
+		<div class="clearfix"></div>
 		{{ $blogsInfo ->links() }}
 		</div>
 		<div class="clearfix"></div>
 		
+		<div class="blog_bottom_adds">
+			<img src="{{ asset('public/frontEnd/images/blog_bottom_adds.gif')}} ">
+		</div>
 		
 		<div class="youtube-video">
-			<h3 class="tittle">Latest Video News</h3>
+			<h3 class="tittle ">Latest Video News</h3>
 			@foreach ($latestVideos as $latestVideo)
 				<div class="col-md-6 col-sm-6">
 					<div class="videos">
@@ -246,6 +293,11 @@ HOME | Aslol Vs Nokol
 			</div>
 			@endif
 			
+			<div class="blo-top1">
+				<div class="bottom_add">
+					<img src="{{ asset('public/frontEnd/images/bottom_adds.gif')}} ">
+				</div>
+			</div>
 			
 		</div>
 		<div class="clearfix"> </div>

@@ -25,7 +25,7 @@ class FrontEndController extends Controller{
 
    public function home(){
    	$value='1';
-
+      $letestProducts = ProductInfo::where('publicationStatus' , 1)->orderBy('id','desc')->take('8')->get();
       $blogsInfo =BlogContent::where('publicationStatus', 1)->orderBy('id', 'desc')->paginate('6');
 
       $max=DB::table('blog_likes')->max('likes');
@@ -38,7 +38,7 @@ class FrontEndController extends Controller{
             ->take(7)
             ->get();
       $latestVideos=video::where('publicationStatus', 1)->latest()->paginate(6);
-   	return view('frontEnd.home.homeContent', ['value'=>$value,'blogsInfo'=>$blogsInfo, 'topBlogs'=>$topBlogs, 'latestVideos'=>$latestVideos]);
+   	return view('frontEnd.home.homeContent', ['value'=>$value,'letestProducts'=>$letestProducts,'blogsInfo'=>$blogsInfo, 'topBlogs'=>$topBlogs, 'latestVideos'=>$latestVideos]);
    }
 
    public function viewProductsByCaregory($id){

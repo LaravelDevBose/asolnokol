@@ -1,0 +1,40 @@
+
+.cat_adds_left{
+    display: inline;
+    float: left;
+}
+
+.cat_adds_left img{
+	width: 100%;
+	height: 510px
+}
+
+.cat_adds_right{
+    display: inline;
+    float: right;
+}
+
+.cat_adds_right img{
+	width: 100%;
+	height: 510px
+}
+
+.blog_bottom_adds{
+	height: 150px;
+	border: 1px solid;
+	margin-bottom: 5px;
+
+}
+
+.blog_bottom_adds img{
+	width: 100%;
+	height: 150px;
+	padding: 5px;
+}
+.bottom_add{
+	margin-bottom: 0em;
+}
+.bottom_add img{
+	width: 100%;
+	
+}
