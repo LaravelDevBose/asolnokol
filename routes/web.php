@@ -12,7 +12,7 @@
 */
  
 //<!-- FrontEndController -->
-Route::get('/', 'FrontEndController@home');
+Route::get('/', 'FrontEndController@home')->name('index');
 //ContactUsMessageController
 Route::get('/contactUs', 'FrontEndController@contactUs');
 Route::post('/contactUs.message.store', 'ContactUsMessageController@store');

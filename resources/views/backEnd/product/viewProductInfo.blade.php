@@ -19,12 +19,7 @@ View Product|Asol Vs Nokol
     </div>
     <!-- /.box-header -->
       <table class="table table-bordered table-striped table-hover dataTable">
-         <tr>
-            <th></th>
-            <th>
-                <h3 class="alert alert-danger text text-center">Real Product Information</h3>
-            </th>        
-        </tr>
+  
         <tr>
             <th class="col-md-3">Product Id</th>
             <th>{{ $productInfos->id }}</th>
@@ -41,10 +36,7 @@ View Product|Asol Vs Nokol
             <th>Company Name</th>
             <th>{{ $productInfos->manufacturerName }}</th>
         </tr>
-        <tr>
-            <th>Identify Rules</th>
-            <th>{!! $productInfos->identify !!}</th>
-        </tr>
+
         <tr>
             <th>Short Description</th>
             <th>{!! $productInfos->shortDescription !!}</th>
@@ -61,24 +53,7 @@ View Product|Asol Vs Nokol
             @endforeach
             </th>
         </tr>
-        <tr>
-            <th></th>
-            <th>
-                <h3 class="alert alert-danger text text-center">Fack Product Information</h3>
-            </th>        
-        </tr>
-        <tr>
-            <th>Fack Product Long Description</th>
-            <th>{!! $productInfos->fackProductLongDescription !!}</th>
-        </tr>
-        <tr>
-            <th>Fact Product Images</th>
-            <th>
-            @foreach($fackProductImages as $fackProductImage)
-                <img src="{{ asset( $fackProductImage->fackProductImagePath ) }}" alt="{{ $fackProductImage->fackProductImageName }}" height="150" width="200" >
-            @endforeach
-            </th>
-        </tr>
+        
         <tr>
             <th>Publication Status</th>
             <th>{{ $productInfos->publicationStatus == 1 ? 'Published' : 'Unpublished' }}</th>

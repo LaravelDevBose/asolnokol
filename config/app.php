@@ -172,7 +172,7 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         ConsoleTVs\Charts\ChartsServiceProvider::class,
         Spatie\Analytics\AnalyticsServiceProvider::class,
-
+        RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
         /*
          * Application Service Providers...
          */

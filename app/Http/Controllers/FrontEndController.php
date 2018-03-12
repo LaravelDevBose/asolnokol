@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\FackProductsImage;
 use App\ContactUsMessage;
 use App\MemberCategory;
 use App\ProductsImage;
@@ -63,12 +62,11 @@ class FrontEndController extends Controller{
    public function singelProduct($id){
       $singelProduct=ProductInfo::where('id', $id)->first();
       $productImages=ProductsImage::where('productId', $id)->get();
-      $fackproductImages=FackProductsImage::where('productId', $id)->get();
-      // $comments = UserComment::where('productId', $id)->get();
       $reviews = ProductReview::where('productId', $id)->orderBy('id', 'desc')->get();
       $likes = Userlike::where('productId', $id)->first();
+      $singelImage = $productImages->first();
 
-      return view('frontEnd.viewProducts.singelProductContent',['singelProduct'=>$singelProduct, 'productImages'=>$productImages, 'fackproductImages'=>$fackproductImages, 'reviews'=>$reviews, 'likes'=>$likes ,]);
+      return view('frontEnd.viewProducts.singelProductContent',['singelProduct'=>$singelProduct, 'productImages'=>$productImages, 'singelImage'=>$singelImage, 'reviews'=>$reviews, 'likes'=>$likes ,]);
    
    }
 
@@ -91,10 +89,11 @@ class FrontEndController extends Controller{
    public function singelBlog($id){
       $singelBlog=BlogContent::where('id', $id)->first();
       $blogImages=BlogImage::where('blogId', $singelBlog->id)->get();
+      $singelImage=$blogImages->first();
       $blogComments = BlogComment::where('blogId', $id)->get();
       $blogLikes = BlogLike::where('blogId', $id)->first();
 
-      return view('frontEnd.blog.singelBlogContent',['singelBlog'=>$singelBlog,'blogImages'=>$blogImages, 'blogComments'=>$blogComments ,'blogLikes'=>$blogLikes,]);
+      return view('frontEnd.blog.singelBlogContent',['singelBlog'=>$singelBlog,'blogImages'=>$blogImages,'singelImage'=>$singelImage, 'blogComments'=>$blogComments ,'blogLikes'=>$blogLikes,]);
 
    }
 

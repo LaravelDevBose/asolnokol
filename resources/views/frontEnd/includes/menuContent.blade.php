@@ -21,7 +21,7 @@
                     @if($menuInfo->childId != 0)
                         @if($menuInfo->childId == 1)
                         <?php $categories= DB::table('categories')->where('publicationStatus', 1)->get();?>
-                            <li class=" dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >{{ $menuInfo->menuName }}</a>
+                            <li class=" dropdown "><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >{{ $menuInfo->menuName }}</a>
                                 <ul class="dropdown-menu">
                                 @foreach($categories as $category)
                                     <li><a href="{{ url('/view.category.product/'.$category->id) }}">{{ $category->categoryName }}</a></li>
@@ -43,9 +43,9 @@
                         
                     @else
                         @if($menuInfo->position == 1)
-                        <li class="active"><a href="{{ url( $menuInfo->menuUrl ) }}" class="">{{ $menuInfo->menuName }}</a></li>
+                        <li ><a href="{{ url( $menuInfo->menuUrl ) }}" class="">{{ $menuInfo->menuName }}</a></li>
                         @else
-                        <li><a href="{{ url( $menuInfo->menuUrl ) }}" class="">{{ $menuInfo->menuName }}</a></li>
+                        <li  ><a href="{{ url( $menuInfo->menuUrl ) }}" class="">{{ $menuInfo->menuName }}</a></li>
                         @endif
                     @endif
                 @endforeach

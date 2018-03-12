@@ -17,13 +17,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 @include('frontEnd.includes.metaTags')
 
+@yield('shareTag')
 <link rel="shortcut icon" href="{{ asset('public/favicon.ico')}}" type="image/x-icon" />
 <!--/web-fonts-->
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,600italic,300,300italic,700,400italic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Wallpoet' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Ubuntu:400,500,700,300' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
-
+<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5aa63e4f2c87d4001337db0d&product=social-ab' async='async'></script>
 <!--//web-fonts-->
 
 <!-- //for-mobile-apps -->

@@ -4,6 +4,19 @@
 singel-Blog | Aslol Vs Nokol
 @endsection
 
+ @section('shareTag')
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="AsolNokol">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{!! ucwords($singelBlog->blogTitel) !!}">
+<meta property="og:description" content="{!! $singelBlog->shortDescription !!}">
+<meta property="og:image" content="{!! asset( $singelImage->imagePath ) !!}">
+<meta property="og:image:width" content="300">
+<meta property="og:image:height" content="300">
+<meta property="og:url" content="{{ url('singel.blog/'.$singelBlog->id) }}" />
+
+@endsection
+
 @section('mainContent')
 <!--//singel view-->
 <div class="single w3ls">
@@ -53,15 +66,7 @@ singel-Blog | Aslol Vs Nokol
 			<div class="single-left3">
 				{!! $singelBlog->longDescription !!}
 			</div>
-			<!-- <div class="single-left4">
-				<h4>Share This Post</h4>
-				<ul class="social-icons social-icons1">
-					<li><a href="#" class="icon icon-border icon-border1 facebook"></a></li>
-					<li><a href="#" class="icon icon-border icon-border1 twitter"></a></li>
-					<li><a href="#" class="icon icon-border icon-border1 instagram"></a></li>
-					<li><a href="#" class="icon icon-border icon-border1 pinterest"></a></li>
-				</ul>
-			</div> -->
+
 			<div class="comments agile-info">
 				<h3>Comments</h3>
 				@foreach( $blogComments as $blogComment)

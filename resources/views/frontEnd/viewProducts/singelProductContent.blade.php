@@ -3,7 +3,18 @@
 @section('title')
 Product | Aslol Vs Nokol
 @endsection
- 
+ @section('shareTag')
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="AsolNokol">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{!! ucwords($singelProduct->productName) !!}">
+<meta property="og:description" content="{!! $singelProduct->shortDescription !!}">
+<meta property="og:image" content="{!! asset( $singelImage->imagePath ) !!}">
+<meta property="og:image:width" content="300">
+<meta property="og:image:height" content="300">
+<meta property="og:url" content="{{ url('singel.product/'.$singelProduct->id) }}" />
+
+@endsection
 @section('mainContent')
 
 <!--//singel view-->
@@ -62,75 +73,13 @@ Product | Aslol Vs Nokol
 					</li>
 				</ul>
 			</div>
-			<div class="clearfix"> </div>
-			<div class="single-left3" style="margin:20px 0;">
-				<p>{!! $singelProduct->identify !!}</p>
-			</div>
+
 			<div class="clearfix"> </div>
 			<div class="single-left3" style="padding:20px 0; ">
 				<p>{!! $singelProduct->longDescription !!}</p>
 			</div>
 			<div class="clearfix"> </div>
-<!-- Real Product Detils End -->
-<!-- Real Product Information End -->
 
-<!-- Fack Product Information start -->
-<!-- Fack Product Slider start -->
-			<div class="sample1">
-				<div class="carousel" style="height: 341px;">
-					<ul><?php $i=1; ?>
-					@foreach( $fackproductImages as $fackproductImage )
-					<?php if($i== '1'){ ?>
-						<li class="current">
-							<img style="height:300px;" src="{{ asset( $fackproductImage->fackProductImagePath )}}" alt=""> 
-							<div class="caption1"><span>doloribus asperio rep</span></div>
-						</li>
-					<?php }else{ ?>
-						<li> 
-							<img style="height:300px;" src="{{ asset( $fackproductImage->fackProductImagePath )}}" alt=""> 
-							<div class="caption"><span>maiores alias consequ</span></div>
-						</li>
-					<?php } $i++;?>
-					@endforeach
-					</ul>
-					<div class="controls">
-						<div class="prev"></div>
-						<div class="next"></div>
-					</div>
-				</div>
-				<div class="thumbnails">
-					<ul>
-					<?php $i=1; ?>
-					@foreach( $fackproductImages as $fackproductImage )
-					<?php  if($i== '1'){ ?>
-						<li class="selected"> <div><img style="height:70px;" src="{{ asset( $fackproductImage->fackProductImagePath )}}" alt=" "></div> </li>
-					<?php }else{ ?>
-						<li> <div><img style="height:70px;" src="{{ asset( $fackproductImage->fackProductImagePath )}}" alt=" "></div> </li>
-					<?php } $i++;?>
-					@endforeach
-					</ul>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-			<div class="clearfix"> </div>
-<!-- Fack Product Slider End -->
-<!-- Fack Product Detils Start -->
-			<div class="single-left3" style="padding:20px 0; ">
-				<p>{!! $singelProduct->fackProductLongDescription !!}</p>
-			</div>
-			<div class="clearfix"> </div>
-
-<!-- Fack Product Detils End -->
-<!-- Fack Product Information End -->
-			<!-- <div class="single-left4">
-				<h4>Share This Post</h4>
-				<ul class="social-icons social-icons1">
-					<li><a href="#" class="icon icon-border icon-border1 facebook"></a></li>
-					<li><a href="#" class="icon icon-border icon-border1 twitter"></a></li>
-					<li><a href="#" class="icon icon-border icon-border1 instagram"></a></li>
-					<li><a href="#" class="icon icon-border icon-border1 pinterest"></a></li>
-				</ul>
-			</div> -->
 			<!-- comment Start -->
 			<div class="comments agile-info">
 				<h4>Reviews</h4>
