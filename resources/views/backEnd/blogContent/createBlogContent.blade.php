@@ -56,14 +56,15 @@ Blog-Insert| Asol Vs Nokol
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-3 control-label">Short Description</label>
                   <div class="col-sm-9">
-                    <h5 class="alert-danger">Writte Short Desctiption In 255 chareter !</h5>
-                   {!! Form::textarea('shortDescription', null,['class'=>'form-control']) !!}
+                    <h5 class="alert-danger">Writte Short Desctiption In 50 chareter !</h5>
+                   {!! Form::textarea('shortDescription', null,['class'=>'form-control', 'rows'=>'2', 'maxlength'=>'50']) !!}
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-3 control-label">Long Description</label>
                   <div class="col-sm-9">
-                   {!! Form::textarea('longDescription', null,['class'=>'form-control']) !!}
+                    <textarea class="textarea" id="editor1" name="longDescription" placeholder="Place some text here" style="width: 100%; height: 400px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+
                   </div>
                 </div>
                 <div class="form-group">
@@ -95,11 +96,19 @@ Blog-Insert| Asol Vs Nokol
           </div>
           <!-- /.box -->
         </div>
-        <!--/.col (left) -->
+        <!--/.col (left) --> 
       </div>
       <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
-
+<script>
+  $(function () {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('editor1');
+    //bootstrap WYSIHTML5 - text editor
+    $(".textarea").wysihtml5();
+  });
+</script>
 @endsection

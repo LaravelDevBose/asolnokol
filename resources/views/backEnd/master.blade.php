@@ -23,8 +23,8 @@
   <!-- backEndLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset('public/backEnd/dist/css/skins/_all-skins.min.css')}}">
-  <script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>
-  <script>tinymce.init({selector: 'textarea'});</script>
+  <!-- <script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>
+  <script>tinymce.init({selector: 'textarea'});</script> -->
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -86,9 +86,8 @@
 <script src="{{asset('public/backEnd/dist/js/pages/dashboard2.js')}}"></script>
 <!-- backEndLTE for demo purposes -->
 <script src="{{asset('public/backEnd/dist/js/demo.js')}}"></script>
-<link href="{{asset('public/backEnd/dist/css/fontawesome-iconpicker.min.css')}}" rel="stylesheet">
-<script src="{{asset('public/backEnd/dist/js/fontawesome-iconpicker.min.js')}}"></script>
 
+<script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 
 <script>
   $(function(){

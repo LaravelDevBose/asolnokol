@@ -18,11 +18,7 @@ Product|Asol Vs Nokol
             <h3 class="text-center text-success">{{ Session::get('success') }}</h3>
               <hr/>
           </div>
-          <div class="col-sm-6">
-            <div id="example1_filter" class="dataTables_filter">
-              <label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label>
-            </div>
-          </div>
+          
         </div>
            <div class="row">
             <div class="col-sm-12">
@@ -34,7 +30,7 @@ Product|Asol Vs Nokol
                     <th>Category Name</th>
                     <th>Company Name</th>
                     <th>Short Description</th>
-                    <th>Publication Status</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -69,7 +65,7 @@ Product|Asol Vs Nokol
                     <th>Category Name</th>
                     <th>Companey Name</th>
                     <th>Short Description</th>
-                    <th>Publication Status</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </tfoot>

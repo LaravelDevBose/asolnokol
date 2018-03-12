@@ -44,11 +44,8 @@ Search | Aslol Vs Nokol
                         <?php  
                             $productImage=DB::table('products_images')->where('productId', $searchProduct->id)->value('imagePath'); 
                             if(!file_exists($productImage)){
-                                $productImage=DB::table('fack_products_images')->where('productId', $searchProduct->id)->value('fackProductImagePath');
-
-                                if(!file_exists($productImage)){
-                                    $productImage = 'public/frontEnd/images/placeholder.jpg';   
-                                }
+                                $productImage = 'public/frontEnd/images/placeholder.jpg';   
+                               
                             }
 
                         ?>

@@ -6,7 +6,15 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
-{
+{   
+    /**
+ * Laravel - A PHP Framework For Web Artisans
+ *
+ * @package  Laravel
+ * @author   Taylor Otwell <taylor@laravel.com>
+ * @Developed By Arup Kumer Bose [Knight Coder] 
+ */
+    
     /**
      * The Artisan commands provided by your application.
      *

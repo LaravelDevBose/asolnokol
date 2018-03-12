@@ -21,9 +21,9 @@ Product | Asol Vs Nokol
             </div>
             <!-- /.box-header -->
             <h3 class="text-center text-success">{{ Session::get('success') }}</h3>
-            <hr/>
+            
             <h3 class="text-center text-danger">{{ Session::get('unsuccess') }}</h3>
-            <hr/>
+            
             @if($errors->any())
               <div class="well">
                   <ul class="alert alert-danger">
@@ -35,10 +35,8 @@ Product | Asol Vs Nokol
             @endif
             <!-- form start -->
             <!-- <form role="form" class="form-horizontal"> -->
-            {!! Form::open( [ 'url'=>'/product.store', 'method' =>'POST', 'class' =>'form-horizontal',
-            'enctype'=>'multipart/form-data' ] ) !!}
+            {!! Form::open( [ 'url'=>'/product.store', 'method' =>'POST', 'class' =>'form-horizontal', 'enctype'=>'multipart/form-data' ] ) !!}
 
-            <h3 class=" alert alert-info text text-center"> Real Product Ingormation</h3>
               <div class="box-body">
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-3 control-label">Product Name</label>
@@ -68,25 +66,19 @@ Product | Asol Vs Nokol
                     </select>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-3 control-label">Identify Rules</label>
-                  <div class="col-sm-9">
-                  <h5 class=" alert-danger">Writte Rules in a list</h5>
-                   {!! Form::textarea('identify', null,['class'=>'form-control','placeholder'=> 'Writte In a list']) !!}
-                  </div>
-                </div>
-
+                
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-3 control-label">Short Description</label>
                   <div class="col-sm-9">
                     <h5 class="alert-danger">Writte Short Desctiption In 50 words !</h5>
-                   {!! Form::textarea('shortDescription', null,['class'=>'form-control']) !!}
+                   {!! Form::textarea('shortDescription', null,['class'=>'form-control','rows'=>'2','maxlength'=>'50']) !!}
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-3 control-label">Long Description</label>
+                  <label for="inputEmail3" class="col-sm-3 control-label">Full Description</label>
                   <div class="col-sm-9">
-                   {!! Form::textarea('longDescription', null,['class'=>'form-control']) !!}
+                    <textarea class="textarea" id="editor1" name="longDescription" placeholder="Place some text here" style="width: 100%; height: 400px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                   
                   </div>
                 </div>
                 <div class="form-group">
@@ -96,19 +88,7 @@ Product | Asol Vs Nokol
                    {!! Form::file('image[]',['multiple', 'accept'=>'image/*' ]) !!}
                   </div>
                 </div>
-                <h3 class=" alert alert-danger text text-center">Fack Product Information</h3>
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-3 control-label">Long Description</label>
-                  <div class="col-sm-9">
-                   {!! Form::textarea('fackProductLongDescription', null,['class'=>'form-control']) !!}
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-3 control-label">Image</label> 
-                  <div class="  col-sm-9">
-                   {!! Form::file('fackProductImage[]',['multiple', 'accept'=>'image/*' ]) !!}
-                  </div>
-                </div>
+                
 
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-3 control-label">Publication Status</label>
@@ -138,5 +118,11 @@ Product | Asol Vs Nokol
     </section>
     <!-- /.content -->
   </div>
-
+<script>
+  $(function () {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('editor1');
+  });
+</script>
 @endsection

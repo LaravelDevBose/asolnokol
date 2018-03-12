@@ -67,7 +67,7 @@ Products | Aslol Vs Nokol
                     </div>
                 @endif
                 </section>
-                @include('frontEnd.includes.sidebar')
+
 			</div>
 			<!--//search-car-left-nav -->
 			<!--/search-car-right-text -->
@@ -90,11 +90,8 @@ Products | Aslol Vs Nokol
                         <?php  
                             $productImage=DB::table('products_images')->where('productId', $product->id)->value('imagePath'); 
                             if(!file_exists($productImage)){
-                                $productImage=DB::table('fack_products_images')->where('productId', $product->id)->value('fackProductImagePath');
 
-                                if(!file_exists($productImage)){
-                                    $productImage = 'public/frontEnd/images/placeholder.jpg';   
-                                }
+                                $productImage = 'public/frontEnd/images/placeholder.jpg';   
                             }
 
                         ?>

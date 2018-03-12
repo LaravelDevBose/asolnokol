@@ -8,7 +8,6 @@ use App\Category;
 use App\Manufacturer;
 use App\ProductInfo;
 use App\ProductsImage;
-use App\FackProductsImage;
 use Session;
 use DB;
 use App\Traits\ProductImage;
@@ -43,14 +42,12 @@ class ProductInfoController extends Controller
 
                 //move Information Supergobel $File to local $files variable
                 $imagesInfos=$request->file('image');
-                $fackProductImages=$request->file('fackProductImage');
                 //couent total file 
-                $totalcount= count($imagesInfos) + count($fackProductImages);
+                $totalcount= count($imagesInfos);
                 //check total File
                 if ($totalcount != 0) {
-                    
-                    $fackProductImagesUrl = array();
-                    $realProductImagesUrl = array();
+
+                    $imagesUrl = array();
                     //If validation Pass Store data (Vie function produtStore($reuest) ) and get product Id
                     //Get product Id Form  function 
                     $productId = $this->produtStore($request);
@@ -58,37 +55,26 @@ class ProductInfoController extends Controller
                     //And get $imagesUrl array
                     if(count($imagesInfos) > 0){
 
-                        $realProductImagesUrl = $this->resizeAndStoreImagesInFolder($imagesInfos );
-                        $this->storeRealProductImages($imagesInfos ,$realProductImagesUrl, $productId);
+                        $imagesUrl = $this->resizeAndStoreImagesInFolder($imagesInfos );
+                        $this->storeRealProductImages($imagesInfos ,$imagesUrl, $productId);
                     }
-                    if(count($fackProductImages) > 0){
-
-                        $fackProductImagesUrl = $this->resizeAndStoreImagesInFolder($fackProductImages);
-                        $this->storeFackProductImages($fackProductImages ,$fackProductImagesUrl, $productId);
-                    }
-
-                    
-                   
 
                         //return Previous pages with Success mesages
                     return redirect()->back()->with('success', 'Product Information Store SuccessFully !');
                     
                 }else{
                     return redirect('/product.insert')
-                    ->with('unsuccess', 'Product Image Are Requierd !')
-                    ->withInput();
+                    ->with('unsuccess', 'Product Image Are Requierd !');
                 }
             }else{
                 return redirect()
                 ->back()
-                ->with('unsuccess', 'Select Category And Manufacture Name')
-                ->withInput();
+                ->with('unsuccess', 'Select Category And Manufacture Name');
             }
         }else{
             return redirect()
                 ->back()
-                ->withErrors($validator) 
-                ->withInput();
+                ->withErrors($validator) ;
         }
 
     }
@@ -122,10 +108,8 @@ class ProductInfoController extends Controller
 
         //get Product Images where  product id equel $id
         $realProductImages = ProductsImage::where('productId', $id)->get();
-        $fackProductImages = FackProductsImage::where('productId', $id)->get();
 
-        return view('backEnd.product.viewProductInfo',['productInfos' => $productInfos , 'realProductImages'=> 
-            $realProductImages, 'fackProductImages'=>$fackProductImages]);
+        return view('backEnd.product.viewProductInfo',['productInfos' => $productInfos , 'realProductImages'=> $realProductImages]);
         //return view with data
     }
 
@@ -142,9 +126,8 @@ class ProductInfoController extends Controller
         $manufacturies= Manufacturer::where('publicationStatus', 1)->get();
         $productInfoById = ProductInfo::where('id', $id)->first();
         $realProductImages = ProductsImage::where('productId', $id)->get();
-        $fackProductsImages = FackProductsImage::where('productId', $id)->get();
 
-        return view('backEnd.product.editProductInfo',['categories'=>$categories, 'manufacturies'=>$manufacturies,'productInfoById'=>$productInfoById, 'realProductImages'=>$realProductImages, 'fackProductsImages'=>$fackProductsImages]);
+        return view('backEnd.product.editProductInfo',['categories'=>$categories, 'manufacturies'=>$manufacturies,'productInfoById'=>$productInfoById, 'realProductImages'=>$realProductImages]);
     }
 
     /**
@@ -161,9 +144,8 @@ class ProductInfoController extends Controller
 
             //move Information Supergobel $File to local $files variable
             $imagesInfos=$request->file('image');
-            $fackProductImages=$request->file('fackProductImage');
             //couent total file 
-            $totalcount= count($imagesInfos) + count($fackProductImages);
+            $totalcount= count($imagesInfos);
 
             if($totalcount != 0 ){
 
@@ -180,10 +162,6 @@ class ProductInfoController extends Controller
                     	$this->storeRealProductImages($imagesInfos ,$realProductImagesUrl, $productId);
                     }
                     
-                    if( count($fackProductImages) > 0){
-                    	$fackProductImagesUrl = $this->resizeAndStoreImagesInFolder($fackProductImages);
-                    	$this->storeFackProductImages($fackProductImages ,$fackProductImagesUrl, $productId);
-                    }
 
                         //return Previous pages with Success mesages
                     return redirect('/product.manage')->with('success', 'Product Information Store SuccessFully !');
@@ -214,10 +192,8 @@ class ProductInfoController extends Controller
 
         //Call destroyImages to Delete Image
         $res1 = $this->destroyRealProductImages($id);
-        $res2 = $this->destroyFackProductImages($id);
-        $result = $res1+$res2;
         // If delete  Enter If Condition
-        if(!$result){
+        if(!$res1){
 
             //Again Find and Get manufacturer by Id And Delete All info 
             $productById = ProductInfo::find($id);
@@ -241,10 +217,8 @@ class ProductInfoController extends Controller
         $product->productName = $request->productName;
         $product->categoryeId = $request->categoryeId;
         $product->manufacturerId = $request->manufacturerId;
-        $product->identify = $request->identify;
         $product->shortDescription = $request->shortDescription;
         $product->longDescription = $request->longDescription;
-        $product->fackProductLongDescription = $request->fackProductLongDescription;
         $product->publicationStatus = $request->publicationStatus;
         $product->save();
 
@@ -261,10 +235,8 @@ class ProductInfoController extends Controller
         $product->productName = $request->productName;
         $product->categoryeId = $request->categoryeId;
         $product->manufacturerId = $request->manufacturerId;
-        $product->identify = $request->identify;
         $product->shortDescription = $request->shortDescription;
         $product->longDescription = $request->longDescription;
-        $product->fackProductLongDescription = $request->fackProductLongDescription;
         $product->publicationStatus = $request->publicationStatus;
         $product->save();
 
@@ -295,25 +267,7 @@ class ProductInfoController extends Controller
         }    
     }
 
-    private function storeFackProductImages($imagesInfos ,$imagesUrl, $productId){
-        //Declear $i
-        $i= 0;
 
-        //Start foreach Loop 
-        foreach ($imagesInfos as $imageInfos) {
-            //get Original Name Form $file as $imageName
-            //get Image Url form $imageUrl[$i] as $imageUrl
-            //store data Via ProductImage Model
-            $productsImage = new FackProductsImage ;
-            $productsImage->productId = $productId;
-            $productsImage->fackProductImageName = $imageInfos->getClientOriginalName();
-            $productsImage->fackProductImagePath = $imagesUrl[$i];
-            $productsImage->save();
-
-            //Incress $i
-            $i++;
-        }    
-    }
 
     public function deleteSingelRealProductImage($id){
 
@@ -326,16 +280,6 @@ class ProductInfoController extends Controller
         return redirect()->back()->with('success', 'Image Delete SuccessFully !');
     }
 
-    public function deleteSingelFackProductImage($id){
-
-        $imageById = FackProductsImage::find($id);
-        $this->destroyFackProductImage($imageById);
-
-        $imageById = FackProductsImage::find($id);
-        $imageById->delete();
-
-        return redirect()->back()->with('success', 'Image Delete SuccessFully !');
-    }
 
     private function destroyRealProductImages($productId){
         //find product Info By $id
@@ -349,17 +293,6 @@ class ProductInfoController extends Controller
         }  
     }
 
-    private function destroyFackProductImages($productId){
-        //find product Info By $id
-        $productImagesById = FackProductsImage::where('productId', $productId)->get();
-
-        //Create Forecah Loop 
-        foreach ($productImagesById as $productImageById) {
-            $this->destroyFackProductImage($productImageById);
-            $productImage = FackProductsImage::find( $productImageById->id );
-            $productImage->delete();
-        }  
-    }
 
   /**
      * Construct the valudation.
@@ -372,10 +305,8 @@ class ProductInfoController extends Controller
         'productName' => 'required',
         'categoryeId' => 'required',
         'manufacturerId' => 'required',
-        'identify' => 'required',
-        'shortDescription' => 'required|max:255',
+        'shortDescription' => 'required|max:50',
         'longDescription' => 'required',
-        'fackProductLongDescription' => 'required',
         'publicationStatus' => 'required',
 
         ]);
@@ -392,11 +323,4 @@ class ProductInfoController extends Controller
         
     }
 
-    private function destroyFackProductImage($imageinfoById){
-        if(file_exists($imageinfoById->fackProductImagePath)){
-            //Destroy Image
-            unlink($imageinfoById->fackProductImagePath);
-        }
-        
-    }
 }

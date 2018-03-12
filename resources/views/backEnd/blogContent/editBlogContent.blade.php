@@ -53,13 +53,13 @@ Blog-edit|Asol Vs Nokol
                   <label for="inputEmail3" class="col-sm-3 control-label">Short Description</label>
                   <div class="col-sm-9">
                     <h5 class="alert-danger">Writte Short Desctiption In 50 words !</h5>
-                  <textarea class="form-control" name="shortDescription" rows="3">{!! $dataById->shortDescription !!}</textarea>
+                  <textarea class="form-control" name="shortDescription" rows="2" maxlength="50"  >{!! $dataById->shortDescription !!}</textarea>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-3 control-label">Long Description</label>
                   <div class="col-sm-9">
-                  <textarea class="form-control" name="longDescription" rows="10">{!! $dataById->longDescription !!}</textarea>
+                  <textarea class="form-control"  id="editor1" name="longDescription" rows="10" style="width: 100%; height: 400px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{!! $dataById->longDescription !!}</textarea>
                   </div>
                 </div>
               
@@ -106,6 +106,12 @@ Blog-edit|Asol Vs Nokol
   <script>
     document.forms['editBlogForm'].elements['publicationStatus'].value={{ $dataById->publicationStatus }}
 </script>
-
+<script>
+  $(function () {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('editor1');
+  });
+</script>
 
 @endsection
